@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+     <br/>
+    <table style="width: 50%; margin:auto;">
+      <h1 style="text-align: center;">This is completed Page</h1>
+      <thead>
+        <tr style="margin-bottom: 10px;">
+          <th style="text-align: center; border: 2px solid black;">Title</th>
+          <th style="text-align: center; border: 2px solid black;">Description</th>
+          <th style="text-align: center; border: 2px solid black;">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for task in completed_tasks %}
+          <tr style="margin-bottom: 10px;">
+            <td style="text-align: center; border: 2px solid black; padding: 10px;">{{ task.taskTitle }}</td>
+            <td style="text-align: center; border: 2px solid black; padding: 10px;">{{ task.taskDescription }}</td>
+            <td style="text-align: center; border: 2px solid black; padding: 10px;">Completed</td>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

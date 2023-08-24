@@ -1,0 +1,43 @@
+{% extends 'base.html'%}
+{% comment %} {% load crispy_forms_tages %} {% endcomment %}
+{% block content %}
+ 
+ <div style='width:80%;margin:auto;'>
+    <h1> This is Show takes page </h1>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% for task in tasks %}
+            <tr>
+              <td style="text-align: center; padding: 10px; border: 2px solid black;">{{ task.taskTitle }}</td>
+              <td style="text-align: center; padding: 10px; border: 2px solid black;">{{ task.taskDescription }}</td>
+              <td style="text-align: center; padding: 10px; border: 2px solid black;">
+                {% if task.is_completed %}
+                Completed
+                {% else %}
+                Incomplete
+                {% endif %}
+              </td>
+              <td style="text-align: center; padding: 10px; border: 2px solid black;">
+                <a href="{% url 'delete_task' task.id %}" style="background-color: red; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none;">Delete</a>
+                <a href="{% url 'edit_task' task.id %}" style="background-color: blue; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none;">Edit</a>
+                <a href="{% url 'complete_task' task.id %}" style="background-color: green; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none;">Complete</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tr>
+          
+      
+        </tbody>
+      </table>
+ </div>
+ 
+{% endblock %}

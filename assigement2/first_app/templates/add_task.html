@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<div style="display: flex; justify-content: center; align-items: center; height: 60vh;">
+    <form method="post" style="width: 70%; padding: 20px; border: 1px solid #ccc; background-color: white; border-radius: 10px;">
+      {% csrf_token %}
+      <h2 style="text-align: center;">Add Task</h2>
+      <label for="taskTitle" style="display: block; margin-bottom: 5px; font-weight: bold;">Task Title:</label>
+      <input type="text" id="taskTitle" name="taskTitle" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;" required><br>
+      <label for="taskDescription" style="display: block; margin-bottom: 5px; font-weight: bold;">Task Description:</label>
+      <textarea id="taskDescription" name="taskDescription" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;" required></textarea><br>
+      <center><button type="submit" style="background-color: rgb(15, 134, 213); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">submit</button></center>
+    </form>
+  </div>
+
+
+
+{% endblock %}
